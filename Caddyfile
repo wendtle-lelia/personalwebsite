@@ -1,0 +1,7 @@
+lennartwendt.com {
+	reverse_proxy web:3000
+}
+
+www.lennartwendt.com {
+	redir https://lennartwendt.com{uri} permanent
+}
