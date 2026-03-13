@@ -1,7 +1,6 @@
 "use client";
 
 import { forwardRef } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -49,16 +48,12 @@ const TimelineCard = forwardRef<HTMLDivElement, TimelineCardProps>(
         >
           {/* Image */}
           {entry.image && (
-            <div className="relative mb-4 h-72 w-full overflow-hidden rounded-xl md:h-96">
-              <Image
-                src={entry.image}
-                alt={entry.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 600px"
-                className="object-cover"
-                loading="lazy"
-              />
-            </div>
+            <img
+              src={entry.image}
+              alt={entry.title}
+              className="mb-4 h-72 w-full rounded-xl object-cover md:h-96"
+              loading="lazy"
+            />
           )}
 
           <div className="space-y-4 px-2 pb-3">
