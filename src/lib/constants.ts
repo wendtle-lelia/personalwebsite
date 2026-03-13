@@ -55,7 +55,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     title: "Bayer · Market Access",
     subtitle: "~4 years · Pharma Commercialization",
     description:
-      "I spent nearly four years on the commercial side of one of the world's largest pharma companies — pricing, reimbursement, launch strategy, health technology assessments. I built pricing frameworks for cell & gene therapies and digital therapeutics. I learned how decisions that shape millions of lives actually get made in regulated industries. And I saw, every single day, how much of that work was still painfully manual.",
+      "Before my master's degree I spent nearly four years at Bayer on the commercial side of pharma. Pricing, reimbursement, launch strategy, health technology assessments. I built pricing frameworks for cell & gene therapies and market access strategies for digital therapeutics. It gave me a deep understanding of how decisions that shape millions of lives actually get made in regulated industries. It also showed me, every single day, how much of that work is still painfully manual. I guess I still think about it today.",
     highlights: [
       "Pricing frameworks for cell & gene therapies",
       "Market access for digital therapeutics",
