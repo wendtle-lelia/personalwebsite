@@ -28,10 +28,13 @@ const TimelineCard = forwardRef<HTMLDivElement, TimelineCardProps>(
         <div ref={sentinelRef} data-id={entry.id} className="absolute -top-24 h-4" />
 
         {/* Mobile verb label */}
-        <div className="mb-4 md:hidden">
-          <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-subtle">
-            I build {entry.verb}
+        <div className="mb-6 md:hidden">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-subtle">
+            I build
           </span>
+          <h2 className="font-display text-2xl font-extrabold tracking-tight text-foreground">
+            {entry.verb}
+          </h2>
         </div>
 
         {/* Card */}
@@ -40,7 +43,7 @@ const TimelineCard = forwardRef<HTMLDivElement, TimelineCardProps>(
             "flex flex-col rounded-2xl border p-3 transition-all duration-300",
             isActive
               ? "border-border bg-card shadow-lg"
-              : "border-border/60 bg-muted/30"
+              : "border-border/60 bg-muted/30 max-md:border-border max-md:bg-card max-md:shadow-lg"
           )}
         >
           {/* Image */}
@@ -58,7 +61,7 @@ const TimelineCard = forwardRef<HTMLDivElement, TimelineCardProps>(
             <h3
               className={cn(
                 "font-display text-lg font-bold leading-tight tracking-tight transition-colors duration-300 md:text-xl",
-                isActive ? "text-foreground" : "text-foreground/70"
+                isActive ? "text-foreground" : "text-foreground/70 max-md:text-foreground"
               )}
             >
               {entry.title}
@@ -71,7 +74,7 @@ const TimelineCard = forwardRef<HTMLDivElement, TimelineCardProps>(
                   "text-sm leading-relaxed transition-all duration-300",
                   isActive
                     ? "text-muted-foreground"
-                    : "text-muted-foreground/80 line-clamp-2"
+                    : "text-muted-foreground/80 line-clamp-2 max-md:line-clamp-none max-md:text-muted-foreground"
                 )}
               >
                 {entry.description}

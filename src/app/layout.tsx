@@ -4,7 +4,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Lennart Wendt — Builder, Berlin",
+  title: "Lennart Wendt",
   description:
     "Founder based in Berlin. Building AI for industries where getting it wrong isn't an option.",
 };
