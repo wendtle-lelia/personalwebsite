@@ -40,7 +40,7 @@ const TimelineCard = forwardRef<HTMLDivElement, TimelineCardProps>(
         {/* Card */}
         <article
           className={cn(
-            "flex flex-col rounded-2xl border p-3 transition-all duration-300",
+            "flex flex-col rounded-2xl border p-3 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
             isActive
               ? "border-border bg-card shadow-lg"
               : "border-border/60 bg-muted/30 max-md:border-border max-md:bg-card max-md:shadow-lg"
@@ -60,38 +60,30 @@ const TimelineCard = forwardRef<HTMLDivElement, TimelineCardProps>(
             {/* Title */}
             <h3
               className={cn(
-                "font-display text-lg font-bold leading-tight tracking-tight transition-colors duration-300 md:text-xl",
+                "font-display text-lg font-bold leading-tight tracking-tight transition-colors duration-500 md:text-xl",
                 isActive ? "text-foreground" : "text-foreground/70 max-md:text-foreground"
               )}
             >
               {entry.title}
             </h3>
 
-            {/* Description — always visible but clamped when inactive */}
+            {/* Description */}
             {entry.description && (
               <p
                 className={cn(
-                  "text-sm leading-relaxed transition-all duration-300",
+                  "whitespace-pre-line text-sm leading-relaxed transition-colors duration-500",
                   isActive
                     ? "text-muted-foreground"
-                    : "text-muted-foreground/80 line-clamp-2 max-md:line-clamp-none max-md:text-muted-foreground"
+                    : "text-muted-foreground/80 max-md:text-muted-foreground"
                 )}
               >
                 {entry.description}
               </p>
             )}
 
-            {/* Expandable content */}
-            <div
-              aria-hidden={!isActive}
-              className={cn(
-                "grid transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]",
-                isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                "max-md:!grid-rows-[1fr] max-md:!opacity-100"
-              )}
-            >
-              <div className="overflow-hidden">
-                <div className="space-y-4 pt-1">
+            {/* Additional content — always visible */}
+            <div>
+              <div className="space-y-4 pt-1">
                   {/* Highlights as bullet list */}
                   {entry.highlights && entry.highlights.length > 0 && (
                     <div className="rounded-xl border border-border/60 bg-muted/40 p-4">
@@ -142,7 +134,6 @@ const TimelineCard = forwardRef<HTMLDivElement, TimelineCardProps>(
                     </div>
                   )}
                 </div>
-              </div>
             </div>
           </div>
         </article>

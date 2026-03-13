@@ -14,11 +14,11 @@ export function Intro() {
           className="text-lg leading-[1.85] text-muted-foreground md:text-xl md:leading-[1.85]"
         >
           I&apos;ve spent the last decade building things across industries,
-          countries, and disciplines — not because I can&apos;t sit still, but
+          countries, and disciplines. Not because I can&apos;t sit still, but
           because building is the fastest way I know to understand how something
-          actually works. That instinct has taken me from pharma to venture
-          capital to fashion to AI. Today I&apos;m building a company at the
-          intersection of AI and regulated European industries.
+          actually works. That instinct has taken me from fashion to pharma to
+          venture capital to AI. Today I&apos;m building a company at the
+          intersection of AI and regulated industries.
         </motion.p>
       </div>
     </section>

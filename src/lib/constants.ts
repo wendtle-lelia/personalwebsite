@@ -32,6 +32,23 @@ export interface TimelineEntry {
 
 export const TIMELINE_ENTRIES: TimelineEntry[] = [
   {
+    id: "act6",
+    verb: "access",
+    icon: Newspaper,
+    title: "act6.eu · Fashion Magazine",
+    subtitle: "Founded · Culture & Access",
+    description:
+      "When I was 17, my biggest passion was fashion and my biggest dream was to sit at Paris Fashion Week and exchange with the designers I idolized. It seemed impossibly far away. But I learned something that has shaped everything I've built since: the best way to get into a room is to build something people in that room care about.\n\nSo I founded act6. The magazine was backed by GATE 194, one of Berlin's most important high fashion stores, and has been releasing biannually ever since. Merch drops, events in Berlin and Paris, and yes, I made it to Paris Fashion Week. Many times. Fashion is no longer my primary focus, but I am still immensely proud of what we created.",
+    highlights: [
+      "Paris Fashion Week accreditation",
+      "Backed by GATE 194",
+      "Biannual print releases",
+      "Still running today",
+    ],
+    image: "/Act6.webp",
+    button: { url: "https://act6.eu/", text: "act6.eu" },
+  },
+  {
     id: "bayer",
     verb: "from within",
     icon: Building2,
@@ -54,11 +71,11 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     title: "Marvelous · First Employee",
     subtitle: "From day zero · Venture Capital",
     description:
-      "I didn't join an established fund — I built one. As the first employee, I worked alongside the General Partners from day zero: sourcing, evaluation, portfolio support, fund operations. Seeing dozens of early stage companies up close taught me the patterns. The founders who win aren't smarter. They pick better problems.",
+      "In my early twenties I received an incredible opportunity: to build a climate deep tech VC fund from scratch together with three General Partners, from day zero. I was the first employee. I talked to LPs and founders alike, built fund operations, sourced deals, and evaluated companies across sectors.\n\nSitting across the table from dozens of early stage teams taught me a lot about what actually makes a company work. And more importantly, what doesn't. It also made one thing very clear: I wanted to be on the other side of that table.",
     highlights: [
-      "First hire, built fund infrastructure from scratch",
-      "Deal sourcing and portfolio evaluation",
-      "Pattern recognition across dozens of startups",
+      "First employee from day zero",
+      "Climate deep tech focus",
+      "Talked to LPs and founders across sectors",
     ],
     image: "/Marvelous.webp",
     button: { url: "https://marvelous-deeptech.com/", text: "Marvelous" },
@@ -70,11 +87,11 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     title: "ProteinDistillery · Finance Lead",
     subtitle: "Deep Tech · Lab to Production",
     description:
-      "As Finance Lead at a deep tech food startup, I managed debt and equity projects during the hardest transition in deep tech: lab to large scale. My work directly led to building a First of a Kind (FOAK) production facility — turning research into physical infrastructure. That's where I saw how pharma, food, and biotech share the same structural pain points.",
+      "At ProteinDistillery I owned everything finance. I managed multimillion euro debt contracts, raised equity rounds, and built the financing that ultimately led to a First of a Kind production facility. I also did the financial planning, controlling, accounting, year end reports, investor reportings, and unit economics calculations. It was an incredible education in what it actually takes to run startup finance end to end.\n\nSeeing a FOAK facility go from spreadsheet to physical infrastructure is something I'm deeply proud of. It's also what made me realize that the technologies shaping our future are held back not by science, but by how hard it is to finance and scale them. I wanted to change that.",
     highlights: [
-      "Led financing for FOAK production facility",
-      "Managed debt and equity capital projects",
-      "Bridged lab research to industrial scale",
+      "Built financing for FOAK production facility",
+      "Multimillion euro debt contracts",
+      "Full stack startup finance",
     ],
     image: "/ProteinDistillery.webp",
     button: { url: "https://proteindistillery.com/groundbreaking-ceremony-in-heilbronn/", text: "ProteinDistillery" },
@@ -86,49 +103,23 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     title: "Lelia · Founded, Built, Shut Down",
     subtitle: "2024 · AI for Private Credit",
     description:
-      "I built Lelia to crack open European private credit — an industry running on spreadsheets and email. We shipped a live AI native platform, signed paying customers, and ran deep discovery across the market. Then I made the hardest decision of my career: I shut it down. The pain was real but not deep enough. The market was real but not large enough. I wrote down seven lessons. They now guide every bet I make.",
+      "I built Lelia because I strongly believe that the future is hardware driven. Semiconductors, data centers, renewables, space, robotics. These industries are not financed through equity but oftentimes through debt. So we tried to crack open European private credit, an industry still running on spreadsheets and email. We shipped a live AI native platform, signed paying customers, and ran deep discovery across the market.\n\nAfter months of rigorous validation we came to the conclusion that the pain point wasn't deep enough and the market wasn't large enough to build the kind of company we wanted to build. So we shut it down. We don't regret a single day of it. I wrote down seven lessons from the experience and they now guide every decision I make.",
     highlights: [
-      "Live platform with paying enterprise customers",
-      "100+ discovery calls analyzed",
-      "Disciplined shutdown after rigorous validation",
+      "Live platform with paying customers",
+      "Hardware driven future thesis",
+      "Shut down with discipline, not defeat",
     ],
     image: "/Lelia.webp",
   },
   {
-    id: "act6",
-    verb: "access",
-    icon: Newspaper,
-    title: "act6.eu · Fashion Magazine",
-    subtitle: "Founded · Culture & Access",
-    description:
-      "Founded a fashion magazine to get access to Paris Fashion Week. Still running today. The best way to get into a room is to build something people in that room care about.",
-    highlights: [
-      "Paris Fashion Week accreditation",
-      "Editorial content & creative direction",
-      "Still running today",
-    ],
-    image: "/Act6.webp",
-    button: { url: "https://act6.eu/", text: "act6.eu" },
-  },
-  {
-    id: "vibe-learning",
-    verb: "to learn",
-    icon: Sparkles,
-    title: "Vibe Coded Learning Platform",
-    subtitle: "Side Project · Education × AI",
-    description:
-      "An experimental education tool — vibes first, structure second. The best way to learn a technology is to ship something with it.",
-    image: "/VibeLearning.webp",
-  },
-  {
-    id: "linkedin-bs",
+    id: "fun-projects",
     verb: "for fun",
     icon: Sparkles,
-    title: "LinkedIn BS Detector",
-    subtitle: "Side Project · Because someone had to",
+    title: "Side Projects · Always",
+    subtitle: "Side Projects · Building for fun",
     description:
-      "A widget that makes LinkedIn posts less bullshit. Built because someone had to.",
-    image: "/LinkedIn.webp",
+      "Along my journey I've always enjoyed building software on the side. Whether that's a Chrome widget that transforms my LinkedIn feed into something I actually enjoy reading, or a Duolingo style app for vibe coding that helped me understand what my beloved Claude is actually doing under the hood. I've always loved the process of building something simply because I need it.",
+    image: "/Funprojects.webp",
   },
   {
     id: "exist",
@@ -137,11 +128,11 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     title: "EXIST Grant · Building Again",
     subtitle: "2026 → · AI × Regulated Industries",
     description:
-      "Backed by Germany's premier startup grant with 12 months of runway. I'm building something new at the intersection of AI and regulated European industries — with Julia Schimanietz (COO, ex ProteinDistillery, €1.6M+ in grants) and Rouven Glauert (CTO, ex Parloa, production AI agents). The thesis: give experts leverage, not replacement. More soon.",
+      "With my trusted co founders Julia and Rouven I'm building something new at the intersection of AI and regulated industries. We're backed by Germany's premier startup grant with 12 months of runway, a sharp thesis, and everything we've learned from the last few years. More soon.",
     highlights: [
-      "EXIST research transfer grant secured",
-      "Team of three with deep domain expertise",
-      "AI for regulated European industries",
+      "EXIST grant backed",
+      "Team of three",
+      "AI for regulated industries",
     ],
     image: "/Whatsnext.webp",
   },
