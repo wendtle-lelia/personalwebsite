@@ -128,7 +128,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     subtitle: "Side Project · Because someone had to",
     description:
       "A widget that makes LinkedIn posts less bullshit. Built because someone had to.",
-    image: "/LinkedIn.png",
+    image: "/LinkedIn.jpg",
   },
   {
     id: "exist",
@@ -143,7 +143,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
       "Team of three with deep domain expertise",
       "AI for regulated European industries",
     ],
-    image: "/Whatsnext.png",
+    image: "/Whatsnext.jpg",
   },
 ];
 
