@@ -27,39 +27,35 @@ export function Timeline() {
     []
   );
 
-  // IntersectionObserver + rAF proximity check for active card detection
+  // IntersectionObserver for active card detection — no per-frame work
   useEffect(() => {
-    if (!sentinelRefs.current.length) return;
+    const sentinels = sentinelRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (!sentinels.length) return;
 
-    let frame: number;
-    let currentIndex = 0;
+    const visible = new Set<number>();
 
-    const updateActive = () => {
-      const centerY = window.innerHeight * 0.2;
-      let bestIndex = 0;
-      let bestDist = Infinity;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const idx = sentinels.indexOf(entry.target as HTMLDivElement);
+          if (idx === -1) return;
+          if (entry.isIntersecting) {
+            visible.add(idx);
+          } else {
+            visible.delete(idx);
+          }
+        });
 
-      sentinelRefs.current.forEach((node, i) => {
-        if (!node) return;
-        const rect = node.getBoundingClientRect();
-        const mid = rect.top + rect.height / 2;
-        const dist = Math.abs(mid - centerY);
-        if (dist < bestDist) {
-          bestDist = dist;
-          bestIndex = i;
+        if (visible.size > 0) {
+          // Pick the smallest index among visible sentinels (topmost card)
+          setActiveIndex(Math.min(...visible));
         }
-      });
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
+    );
 
-      if (bestIndex !== currentIndex) {
-        currentIndex = bestIndex;
-        setActiveIndex(bestIndex);
-      }
-
-      frame = requestAnimationFrame(updateActive);
-    };
-
-    frame = requestAnimationFrame(updateActive);
-    return () => cancelAnimationFrame(frame);
+    sentinels.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   const scrollToCard = useCallback((index: number) => {

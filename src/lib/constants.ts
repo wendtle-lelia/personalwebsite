@@ -44,7 +44,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
       "Market access for digital therapeutics",
       "Health technology assessment strategy",
     ],
-    image: "/Bayer.jpg",
+    image: "/Bayer.webp",
     button: { url: "https://www.bayer.com/en/", text: "Bayer" },
   },
   {
@@ -60,7 +60,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
       "Deal sourcing and portfolio evaluation",
       "Pattern recognition across dozens of startups",
     ],
-    image: "/Marvelous.jpeg",
+    image: "/Marvelous.webp",
     button: { url: "https://marvelous-deeptech.com/", text: "Marvelous" },
   },
   {
@@ -76,7 +76,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
       "Managed debt and equity capital projects",
       "Bridged lab research to industrial scale",
     ],
-    image: "/ProteinDistillery.jpg",
+    image: "/ProteinDistillery.webp",
     button: { url: "https://proteindistillery.com/groundbreaking-ceremony-in-heilbronn/", text: "ProteinDistillery" },
   },
   {
@@ -92,7 +92,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
       "100+ discovery calls analyzed",
       "Disciplined shutdown after rigorous validation",
     ],
-    image: "/Lelia.jpeg",
+    image: "/Lelia.webp",
   },
   {
     id: "act6",
@@ -107,7 +107,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
       "Editorial content & creative direction",
       "Still running today",
     ],
-    image: "/Act6.jpeg",
+    image: "/Act6.webp",
     button: { url: "https://act6.eu/", text: "act6.eu" },
   },
   {
@@ -118,7 +118,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     subtitle: "Side Project · Education × AI",
     description:
       "An experimental education tool — vibes first, structure second. The best way to learn a technology is to ship something with it.",
-    image: "/VibeLearning.png",
+    image: "/VibeLearning.webp",
   },
   {
     id: "linkedin-bs",
@@ -128,7 +128,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
     subtitle: "Side Project · Because someone had to",
     description:
       "A widget that makes LinkedIn posts less bullshit. Built because someone had to.",
-    image: "/LinkedIn.png",
+    image: "/LinkedIn.webp",
   },
   {
     id: "exist",
@@ -143,7 +143,7 @@ export const TIMELINE_ENTRIES: TimelineEntry[] = [
       "Team of three with deep domain expertise",
       "AI for regulated European industries",
     ],
-    image: "/Whatsnext.png",
+    image: "/Whatsnext.webp",
   },
 ];
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   motion,
   useMotionValue,
@@ -8,23 +8,38 @@ import {
   useAnimationFrame,
 } from "framer-motion";
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  return isMobile;
+}
+
 export function InfiniteGridBackground() {
+  const isMobile = useIsMobile();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   useEffect(() => {
+    if (isMobile) return;
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, isMobile]);
 
   const gridOffsetX = useMotionValue(0);
   const gridOffsetY = useMotionValue(0);
 
   useAnimationFrame(() => {
+    if (isMobile) return;
     gridOffsetX.set((gridOffsetX.get() + 0.5) % 40);
     gridOffsetY.set((gridOffsetY.get() + 0.5) % 40);
   });
@@ -38,18 +53,20 @@ export function InfiniteGridBackground() {
         <GridPattern id="grid-base" offsetX={gridOffsetX} offsetY={gridOffsetY} />
       </div>
 
-      {/* Mouse-revealed grid */}
-      <motion.div
-        className="absolute inset-0 opacity-40"
-        style={{ maskImage, WebkitMaskImage: maskImage }}
-      >
-        <GridPattern id="grid-reveal" offsetX={gridOffsetX} offsetY={gridOffsetY} />
-      </motion.div>
+      {/* Mouse-revealed grid — hidden on mobile */}
+      {!isMobile && (
+        <motion.div
+          className="absolute inset-0 opacity-40"
+          style={{ maskImage, WebkitMaskImage: maskImage }}
+        >
+          <GridPattern id="grid-reveal" offsetX={gridOffsetX} offsetY={gridOffsetY} />
+        </motion.div>
+      )}
 
-      {/* Burnt orange glow blobs */}
-      <div className="absolute right-[-20%] top-[-20%] h-[40%] w-[40%] rounded-full bg-orange-500/40 blur-[120px]" />
-      <div className="absolute right-[10%] top-[-10%] h-[20%] w-[20%] rounded-full bg-primary/30 blur-[100px]" />
-      <div className="absolute bottom-[-20%] left-[-10%] h-[40%] w-[40%] rounded-full bg-orange-600/40 blur-[120px]" />
+      {/* Glow blobs — reduced blur on mobile */}
+      <div className="absolute right-[-20%] top-[-20%] h-[40%] w-[40%] rounded-full bg-orange-500/40 blur-[80px] md:blur-[120px]" />
+      <div className="absolute right-[10%] top-[-10%] h-[20%] w-[20%] rounded-full bg-primary/30 blur-[60px] md:blur-[100px]" />
+      <div className="absolute bottom-[-20%] left-[-10%] h-[40%] w-[40%] rounded-full bg-orange-600/40 blur-[80px] md:blur-[120px]" />
     </div>
   );
 }
