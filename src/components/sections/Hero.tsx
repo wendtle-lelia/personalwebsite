@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 import { HERO_WORDS } from "@/lib/constants";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   const [index, setIndex] = useState(0);
+  const [photoVisible, setPhotoVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,19 +34,28 @@ export function Hero() {
           WENDT
         </motion.h1>
 
-        {/* Photo placeholder — absolute, overlapping text from upper-right */}
-        <motion.div
-          initial={{ clipPath: "inset(100% 0 0 0)", scale: 0.95 }}
-          animate={{ clipPath: "inset(0 0 0 0)", scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3, ease }}
-          className="absolute right-0 top-[10%] z-20 w-[55vw] md:right-0 md:top-[-5%] md:w-[28vw] md:max-w-[450px]"
-        >
-          <img
-            src="/Lennart.png"
-            alt="Lennart Wendt"
-            className="aspect-[4/5] w-full rounded-sm object-cover"
-          />
-        </motion.div>
+        {/* Photo — absolute, overlapping text from upper-right */}
+        <AnimatePresence>
+          {photoVisible && (
+            <motion.div
+              initial={{ clipPath: "inset(100% 0 0 0)", scale: 0.95 }}
+              animate={{ clipPath: "inset(0 0 0 0)", scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.8, delay: 0.3, ease }}
+              className="absolute right-0 top-[10%] z-20 w-[40vw] cursor-pointer md:pointer-events-none md:top-[-5%] md:w-[28vw] md:max-w-[450px]"
+              onClick={() => setPhotoVisible(false)}
+            >
+              <img
+                src="/Lennart.png"
+                alt="Lennart Wendt"
+                className="aspect-[4/5] w-full rounded-sm object-cover"
+              />
+              <span className="absolute bottom-2 right-2 flex items-center justify-center rounded-full bg-foreground/60 p-1 text-white backdrop-blur-sm md:hidden">
+                <X className="h-2.5 w-2.5" />
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Content below the overlap zone */}

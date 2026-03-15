@@ -57,9 +57,9 @@ export function ProjectTile({ entry }: ProjectTileProps) {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ duration: 0.4, ease }}
-            className="absolute inset-0 z-30 flex flex-col justify-end overflow-y-auto bg-card/95 p-6 backdrop-blur-sm md:p-8"
+            className="absolute inset-0 z-30 flex flex-col overflow-y-auto bg-card/95 p-6 backdrop-blur-sm md:p-8"
           >
-            <div className="space-y-4">
+            <div className="mt-auto space-y-4">
               <h3 className="font-display text-lg font-bold leading-tight tracking-tight text-foreground md:text-xl">
                 {entry.title}
               </h3>
@@ -96,14 +96,6 @@ export function ProjectTile({ entry }: ProjectTileProps) {
         )}
       </AnimatePresence>
 
-      {/* Mobile title bar (visible when not expanded) */}
-      {!expanded && (
-        <div className="absolute bottom-0 left-0 right-0 z-20 bg-gradient-to-t from-card/80 to-transparent p-4 pt-10 md:hidden">
-          <p className="font-display text-sm font-bold text-foreground">
-            {entry.title}
-          </p>
-        </div>
-      )}
     </motion.div>
   );
 }
