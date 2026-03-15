@@ -19,7 +19,7 @@ export function ProjectTile({ entry }: ProjectTileProps) {
 
   return (
     <motion.div
-      className="group relative aspect-[4/5] cursor-pointer overflow-hidden rounded-2xl bg-secondary"
+      className="group relative aspect-[4/5] cursor-pointer overflow-hidden rounded-2xl bg-secondary @container"
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       onClick={() => setExpanded((prev) => !prev)}
@@ -29,10 +29,10 @@ export function ProjectTile({ entry }: ProjectTileProps) {
         className="pointer-events-none absolute inset-0 flex flex-col justify-between p-6 md:p-8"
         aria-hidden="true"
       >
-        <span className="font-display text-[clamp(2.5rem,7vw,7rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.04em] text-foreground">
+        <span className="font-display text-[clamp(2.5rem,14cqw,5rem)] font-extrabold uppercase leading-[0.9] tracking-[-0.04em] text-foreground">
           I BUILD
         </span>
-        <span className="w-full break-words font-display text-[clamp(3rem,8vw,9rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.04em] text-highlight">
+        <span className="w-full break-words font-display text-[clamp(3rem,17cqw,6rem)] font-extrabold uppercase leading-[0.85] tracking-[-0.04em] text-highlight">
           {entry.verb}
         </span>
       </div>
