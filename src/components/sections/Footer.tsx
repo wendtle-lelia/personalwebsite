@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { SOCIAL_LINKS } from "@/lib/constants";
 import { ArrowUpRight } from "lucide-react";
@@ -19,6 +20,16 @@ export function Footer() {
           <br />
           that matters.
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-4 text-xs font-medium uppercase tracking-[0.2em] text-subtle"
+        >
+          Currently backed by EXIST & AI Nation
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -43,7 +54,15 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col justify-between gap-4 border-t border-border pt-8 text-xs text-subtle sm:flex-row sm:items-center">
           <p className="uppercase tracking-[0.18em]">Berlin, Germany</p>
-          <p>&copy; {new Date().getFullYear()} Lennart Wendt</p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/impressum"
+              className="uppercase tracking-[0.18em] transition-colors hover:text-foreground"
+            >
+              Impressum
+            </Link>
+            <p>&copy; {new Date().getFullYear()} Lennart Wendt</p>
+          </div>
         </div>
       </div>
     </footer>

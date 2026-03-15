@@ -17,57 +17,97 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative flex min-h-[100dvh] flex-col items-center justify-center text-center px-6 md:px-[8vw]">
-      {/* Staggered entrance */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2, ease }}
-      >
-        <h1 className="font-display text-[clamp(4rem,12vw,10rem)] font-extrabold leading-[0.9] tracking-[-0.04em] text-foreground">
+    <section className="relative flex min-h-[100dvh] flex-col justify-center px-6 md:px-[8vw]">
+      {/* Name + Photo overlap zone */}
+      <div className="relative">
+        {/* Two-line stacked name */}
+        <motion.h1
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease }}
+          className="font-display text-[clamp(3.5rem,16vw,20rem)] font-extrabold leading-[0.9] tracking-[-0.05em] text-foreground"
+        >
           LENNART
-        </h1>
-      </motion.div>
+          <br />
+          WENDT
+        </motion.h1>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5, ease }}
-        className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1"
-      >
-        <span className="font-display text-lg font-bold text-foreground md:text-2xl">I</span>
-        <span className="font-display text-lg font-bold text-foreground md:text-2xl">
-          build
-        </span>
-        <span className="inline-flex overflow-hidden pr-1">
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={HERO_WORDS[index]}
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-100%" }}
-              transition={{ duration: 0.4, ease }}
-              className="font-display text-lg font-bold italic text-highlight md:text-2xl"
-            >
-              {HERO_WORDS[index]}
-            </motion.span>
-          </AnimatePresence>
-        </span>
-      </motion.div>
+        {/* Photo placeholder — absolute, overlapping text from upper-right */}
+        <motion.div
+          initial={{ clipPath: "inset(100% 0 0 0)", scale: 0.95 }}
+          animate={{ clipPath: "inset(0 0 0 0)", scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3, ease }}
+          className="absolute right-0 top-[10%] z-20 w-[55vw] md:right-0 md:top-[-5%] md:w-[28vw] md:max-w-[450px]"
+        >
+          <img
+            src="/Lennart.png"
+            alt="Lennart Wendt"
+            className="aspect-[4/5] w-full rounded-sm object-cover"
+          />
+        </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-        className="mt-8 space-y-1"
-      >
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-subtle">
-          Founder · Berlin · Ex Bayer · Ex VC
-        </p>
-        <p className="text-[0.65rem] uppercase tracking-[0.15em] text-subtle/60">
-          Educated across Germany · England · France
-        </p>
-      </motion.div>
+      {/* Content below the overlap zone */}
+      <div className="mt-8 max-w-[600px] md:mt-12">
+        {/* "I build [word]" subtitle */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5, ease }}
+          className="flex flex-wrap items-baseline gap-x-3 gap-y-1"
+        >
+          <span className="font-display text-xl font-bold text-foreground md:text-3xl">
+            I
+          </span>
+          <span className="font-display text-xl font-bold text-foreground md:text-3xl">
+            build
+          </span>
+          <span className="inline-flex overflow-hidden pr-1">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={HERO_WORDS[index]}
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "-100%" }}
+                transition={{ duration: 0.4, ease }}
+                className="font-display text-xl font-bold italic text-highlight md:text-3xl"
+              >
+                {HERO_WORDS[index]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
+        </motion.div>
+
+        {/* Intro paragraph */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7, ease }}
+          className="mt-6 text-base leading-[1.85] text-muted-foreground md:mt-8 md:text-lg md:leading-[1.85]"
+        >
+          I&apos;ve spent the last decade building across industries,
+          countries, and disciplines. Not because I can&apos;t sit still, but
+          because building is the fastest way I know to understand how something
+          actually works. That instinct has taken me from fashion to pharma to
+          venture capital to AI. Today I&apos;m building a company at the
+          intersection of AI and regulated industries.
+        </motion.p>
+
+        {/* Credentials */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
+          className="mt-6 space-y-1"
+        >
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-subtle md:text-sm">
+            Founder · Berlin · Ex Bayer · Ex VC
+          </p>
+          <p className="text-[0.65rem] uppercase tracking-[0.15em] text-subtle/60 md:text-xs">
+            Educated across Germany · England · France
+          </p>
+        </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div

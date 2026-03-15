@@ -63,3 +63,6 @@
     font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   }
 }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
